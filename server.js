@@ -15,7 +15,7 @@ const port = process.env.PORT || 4000;
 const app = express()
 
 //cors origin is the client that we allow
-const cors = require('cors')
+const cors = require("cors")
 app.use(cors({origin: 'https://enchanting-madeleine-c3ff07.netlify.app'}))
 
 // middleware
