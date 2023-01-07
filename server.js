@@ -9,6 +9,7 @@ const studentRoutes = require('./routes/students')
 const facultyRoutes = require('./routes/faculty')
 const http = require("http")
 const {Server} = require("socket.io")
+const port = process.env.PORT || 4000;
 
 // express app 
 const app = express()
