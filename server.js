@@ -30,27 +30,35 @@ app.use((req,res, next) => {
 app.use('/api/students', studentRoutes)
 app.use('/api/faculty', facultyRoutes)
 
+const server = http.createServer(app)
+const io = new Server(server);
+
 // connect db 
 mongoose.connect(process.env.MONG_URI)
     .then(() => {
-        
-
+        server.listen(port, () => {
+            console.log('connected to db & listening on port', process.env.PORT);
+        })
+    })
+        .catch(error => {
+            console.log('error', error);	
+        });
+    
 // 3 listen to for request
-app.listen(process.env.PORT, () => {
+/*app.listen(process.env.PORT, () => {
     console.log('connected to db & listening on port', process.env.PORT)
 })
     })
     .catch((error) => {
         console.log(error)
-    })
+    })*/
 
     //socket server //new 12-7
-const server = http.createServer(app)
-const io = new Server(server);
 
-server.listen( app, () => {
+
+/*server.listen( app, () => {
     console.log("Server is running");
-});
+});*/
 
 
 io.on("connection", (socket) => {
@@ -62,9 +70,7 @@ io.on("connection", (socket) => {
     });
 	socket.on("send_message", (data) => {
         socket.broadcast.emit("receive_message", data);
-        //socket.to(data.room).emit("receive_message", data);
-        //socket.to(data.room).emit("receive_message", data);
-       // console.log(data.room)
+       
 });
 
 })
