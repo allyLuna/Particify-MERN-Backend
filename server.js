@@ -31,7 +31,12 @@ app.use('/api/students', studentRoutes)
 app.use('/api/faculty', facultyRoutes)
 
 const server = http.createServer(app)
-const io = new Server(server);
+const io = new Server(server, {
+    cors: {
+        origin: "https://charming-paprenjak-891a84.netlify.app",
+        methods: ["GET", "POST"],
+        transports: ["websocket", "polling"]
+    }});
 
 // connect db 
 mongoose.connect(process.env.MONG_URI)
