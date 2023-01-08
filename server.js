@@ -46,12 +46,7 @@ app.listen(process.env.PORT, () => {
 
     //socket server //new 12-7
 const server = http.createServer(app)
-const io = new Server(server, {
-    cors: {
-        origin: "hhttps://enchanting-madeleine-c3ff07.netlify.app",
-        methods: ["GET", "POST"],
-    },
-});
+const io = new Server(server);
 
 server.listen( app, () => {
     console.log("Server is running");
