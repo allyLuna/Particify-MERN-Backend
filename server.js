@@ -53,7 +53,7 @@ const io = new Server(server, {
     },
 });
 
-server.listen( "https://enchanting-madeleine-c3ff07.netlify.app", () => {
+server.listen( app, () => {
     console.log("Server is running");
 });
 
