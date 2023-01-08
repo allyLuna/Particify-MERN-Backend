@@ -48,7 +48,7 @@ app.listen(process.env.PORT, () => {
 const server = http.createServer(app)
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "hhttps://enchanting-madeleine-c3ff07.netlify.app",
         methods: ["GET", "POST"],
     },
 });
