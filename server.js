@@ -48,12 +48,12 @@ app.listen(process.env.PORT, () => {
 const server = http.createServer(app)
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://enchanting-madeleine-c3ff07.netlify.app",
         methods: ["GET", "POST"],
     },
 });
 
-server.listen( 4001, () => {
+server.listen( process.env.PORT, () => {
     console.log("Server is running");
 });
 
