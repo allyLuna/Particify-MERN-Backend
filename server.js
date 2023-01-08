@@ -48,7 +48,7 @@ app.listen(process.env.PORT, () => {
 const server = http.createServer(app)
 const io = new Server(server, {
     cors: {
-        origin: "https://enchanting-madeleine-c3ff07.netlify.app",
+        origin: "https://particify-backend.adaptable.app",
         methods: ["GET", "POST"],
     },
 });
