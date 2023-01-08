@@ -59,6 +59,7 @@ server.listen( 4001, () => {
 
 
 io.on("connection", (socket) => {
+   
     console.log(`User Connected: ${socket.id}`);
 
     socket.on("join_room", (data) => {
@@ -70,6 +71,8 @@ io.on("connection", (socket) => {
         //socket.to(data.room).emit("receive_message", data);
        // console.log(data.room)
 });
+
+socket.io.on("reconnect_error", (error) => {
+    socket.disconnect()
+  });
 })
-
-
