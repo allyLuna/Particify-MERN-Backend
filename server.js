@@ -33,7 +33,7 @@ app.use('/api/faculty', facultyRoutes)
 const server = http.createServer(app)
 const io = new Server(server, {
     cors: {
-        origin: "https://charming-paprenjak-891a84.netlify.app",
+        origin: "https://enchanting-madeleine-c3ff07.netlify.app",
         methods: ["GET", "POST"],
         transports: ["websocket", "polling"]
     }});
