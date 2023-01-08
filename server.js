@@ -44,14 +44,14 @@ app.listen(process.env.PORT, () => {
         console.log(error)
     })
 
-    //socket server //new 12-7 // had problem when changed the origin
+    //socket server //new 12-7
 const server = http.createServer(app)
-const io = new Server(server/*, {
+const io = new Server(server, {
     cors: {
-        origin: "https://particify-backend.adaptable.app",
+        origin: "http://localhost:3000",
         methods: ["GET", "POST"],
     },
-}*/);
+});
 
 server.listen( process.env.PORT, () => {
     console.log("Server is running");
