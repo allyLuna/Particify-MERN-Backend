@@ -53,7 +53,7 @@ const io = new Server(server, {
     },
 });
 
-server.listen( process.env.PORT, () => {
+server.listen( 4001, () => {
     console.log("Server is running");
 });
 
@@ -72,7 +72,6 @@ io.on("connection", (socket) => {
        // console.log(data.room)
 });
 
-socket.io.on("reconnect_error", (error) => {
-    socket.disconnect()
-  });
 })
+
+
