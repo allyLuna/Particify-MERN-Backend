@@ -35,7 +35,7 @@ const io = new Server(server, {
     cors: {
         origin: "https://enchanting-madeleine-c3ff07.netlify.app",
         methods: ["GET", "POST"],
-        transports: ["polling","websocket"],
+        transports: ["websocket","polling"],
         credentials: true
     }});
 
