@@ -16,7 +16,7 @@ const app = express()
 
 //cors origin is the client that we allow
 const cors = require("cors")
-app.use(cors({origin: 'https://enchanting-madeleine-c3ff07.netlify.app'}))
+app.use(cors({origin: 'https://enchanting-madeleine-c3ff07.netlify.app:80'}))
 
 // middleware
 app.use(express.json())
@@ -33,9 +33,10 @@ app.use('/api/faculty', facultyRoutes)
 const server = http.createServer(app)
 const io = new Server(server, {
     cors: {
-        origin: "https://enchanting-madeleine-c3ff07.netlify.app",
+        origin: "https://enchanting-madeleine-c3ff07.netlify.app:80",
         methods: ["GET", "POST"],
-        transports: ["websocket", "polling"]
+        transports: ["websocket", "polling"],
+        credentials: true
     }});
 
 // connect db 
