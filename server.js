@@ -41,8 +41,8 @@ const io = new Server(server, {
 // connect db 
 mongoose.connect(process.env.MONG_URI)
     .then(() => {
-        app.listen(process.env.PORT, () => {
-            console.log('connected to db & listening on port', process.env.PORT)
+        server.listen(port, () => {
+            console.log('connected to db & listening on port', process.env.PORT);
         })
     })
         .catch(error => {
@@ -50,7 +50,9 @@ mongoose.connect(process.env.MONG_URI)
         });
     
 // 3 listen to for request
-/*
+/*app.listen(process.env.PORT, () => {
+    console.log('connected to db & listening on port', process.env.PORT)
+})
     })
     .catch((error) => {
         console.log(error)
@@ -58,9 +60,7 @@ mongoose.connect(process.env.MONG_URI)
 
     //socket server //new 12-7
 
-    server.listen(port, () => {
-        console.log('connected to db & listening on port', process.env.PORT);
-    })
+
 /*server.listen( app, () => {
     console.log("Server is running");
 });*/
