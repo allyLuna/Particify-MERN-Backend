@@ -16,7 +16,7 @@ const app = express()
 
 //cors origin is the client that we allow
 const cors = require("cors")
-app.use(cors({origin: 'https://particify.netlify.app/'}))
+app.use(cors({origin: 'https://particify.netlify.app'}))
 
 // middleware
 app.use(express.json())
@@ -33,7 +33,7 @@ app.use('/api/faculty', facultyRoutes)
 const server = http.createServer(app)
 const io = new Server(server, {
     cors: {
-        origin: "https://particify.netlify.app/",
+        origin: "https://particify.netlify.app",
         methods: ["GET", "POST"],
         transports: ["websocket","polling"],
         credentials: true
