@@ -7,7 +7,7 @@ const express = require('express') // 2 require the express package npm install 
 const mongoose = require('mongoose')
 const studentRoutes = require('./routes/students')
 const facultyRoutes = require('./routes/faculty')
-const http = require("http")
+const http = require("https")
 const {Server} = require("socket.io")
 const port = process.env.PORT || 4000;
 
@@ -35,7 +35,7 @@ const io = new Server(server, {
     cors: {
         origin: "https://enchanting-madeleine-c3ff07.netlify.app",
         methods: ["GET", "POST"],
-        transports: ["websocket", "polling"],
+        transports: ["polling"],
         credentials: true
     }});
 
