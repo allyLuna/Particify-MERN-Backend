@@ -40,7 +40,7 @@ const io = new Server(server, {
     cors: {
         origin: "https://particify.netlify.app",
         methods: ["GET", "POST", "PATCH", "DELETE"],
-        transports: ["websocket", "polling"],
+        transports: ["websocket","polling"],
         credentials: true
     }});
 
