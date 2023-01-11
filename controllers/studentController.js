@@ -13,7 +13,7 @@ const createToken = (_id) => {
 const getStudentScore = async (req, res) => {
     const {username} = req.params
    // const {score} = req.params
-     const students = await Student.find({username}, {score: 1})
+     const students = await Student.find({username}, {score:1, participationAsk:1 , participationGive:1, participationRec:1})
     
      res.status(200).json(students)
  }
