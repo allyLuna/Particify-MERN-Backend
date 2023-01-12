@@ -10,14 +10,14 @@ const facultyRoutes = require('./routes/faculty')
 const http = require("http")
 const {Server} = require("socket.io")
 const port = process.env.PORT || 4000;
-
+const net = "https://brilliant-fairy-52e9de.netlify.app"
 // express app 
 const app = express()
 
 //cors origin is the client that we allow
 const cors = require("cors")
 app.use(cors({
-    origin: 'https://particify-2.netlify.app',
+    origin: net,
      //   methods: ["GET", "POST", "PATCH", "DELETE"],
      //   transports: ["websocket","polling"],
         //credentials: true
@@ -38,7 +38,7 @@ app.use('/api/faculty', facultyRoutes)
 const server = http.createServer(app)
 const io = new Server(server, {
     cors: {
-        origin: "https://particify-2.netlify.app",
+        origin: net,
         methods: ["GET", "POST", "PATCH", "DELETE"],
         transports: ["websocket","polling"],
         credentials: true
