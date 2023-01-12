@@ -22,6 +22,9 @@ const app = express()
         transports: ["websocket","polling"],
         credentials: true
 }))*/
+app.use(cors({
+    origin: 'https://merry-churros-dc63e3.netlify.app'      
+}))
 
 // middleware
 app.use(express.json())
