@@ -7,23 +7,20 @@ const express = require('express') // 2 require the express package npm install 
 const mongoose = require('mongoose')
 const studentRoutes = require('./routes/students')
 const facultyRoutes = require('./routes/faculty')
-//const http = require("http")
-//const {Server} = require("socket.io")
+const http = require("http")
+const {Server} = require("socket.io")
 const port = process.env.PORT || 4000;
 
 // express app 
 const app = express()
 
 //cors origin is the client that we allow
-//const cors = require("cors")
-/*app.use(cors({
-    origin: 'https://particify.netlify.app',
-        methods: ["GET", "POST", "PATCH", "DELETE"],
-        transports: ["websocket","polling"],
-        credentials: true
-}))*/
+const cors = require("cors")
 app.use(cors({
-    origin: 'https://merry-churros-dc63e3.netlify.app'      
+    origin: 'https://merry-churros-dc63e3.netlify.app',
+        methods: ["GET", "POST", "PATCH", "DELETE"],
+     //   transports: ["websocket","polling"],
+        //credentials: true
 }))
 
 // middleware
@@ -38,7 +35,7 @@ app.use((req,res, next) => {
 app.use('/api/students', studentRoutes)
 app.use('/api/faculty', facultyRoutes)
 
-/*const server = http.createServer(app)
+const server = http.createServer(app)
 const io = new Server(server, {
     cors: {
         origin: "https://particify.netlify.app",
@@ -46,17 +43,17 @@ const io = new Server(server, {
         transports: ["websocket","polling"],
         credentials: true
     }});
-*/
+
 // connect db 
 mongoose.connect(process.env.MONG_URI)
     .then(() => {
-        app.listen(process.env.PORT, () => {
-            console.log('connected to db & listening on port', process.env.PORT)
+        server.listen(port, () => {
+            console.log('connected to db & listening on port', process.env.PORT);
         })
-            })
-            .catch((error) => {
-                console.log(error)
-            });
+    })
+        .catch(error => {
+            console.log('error', error);	
+        });
     
 // 3 listen to for request
 /*app.listen(process.env.PORT, () => {
@@ -74,8 +71,8 @@ mongoose.connect(process.env.MONG_URI)
     console.log("Server is running");
 });*/
 
-/*
-io.on("connection", (socket) => {
+
+/*io.on("connection", (socket) => {
    
     console.log(`User Connected: ${socket.id}`);
 
@@ -86,7 +83,7 @@ io.on("connection", (socket) => {
         socket.broadcast.emit("receive_message", data);
        
 });
-*/
-//})
+
+})*/
 
 
