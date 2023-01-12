@@ -66,7 +66,7 @@ studentSchema.statics.signup = async function (nameofStudent, username, email, p
     const salt = await bcrypt.genSalt(10)
     const hash = await bcrypt.hash(password, salt)
 
-    const student = await this.create({ nameofStudent, username, email, password:hash, score:0,  participationAsk:0, participationRec:0, participationGive:0  })
+    const student = await this.create({ nameofStudent, username, email, password:hash, score:2000,  participationAsk:0, participationRec:0, participationGive:0  })
 
     return student
 }   
