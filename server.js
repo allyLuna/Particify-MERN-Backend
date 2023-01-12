@@ -18,7 +18,7 @@ const app = express()
 const cors = require("cors")
 app.use(cors({
     origin: 'https://merry-churros-dc63e3.netlify.app',
-        methods: ["GET", "POST", "PATCH", "DELETE"],
+     //   methods: ["GET", "POST", "PATCH", "DELETE"],
      //   transports: ["websocket","polling"],
         //credentials: true
 }))
@@ -38,7 +38,7 @@ app.use('/api/faculty', facultyRoutes)
 const server = http.createServer(app)
 const io = new Server(server, {
     cors: {
-        origin: "https://particify.netlify.app",
+        origin: "https://merry-churros-dc63e3.netlify.app",
         methods: ["GET", "POST", "PATCH", "DELETE"],
         transports: ["websocket","polling"],
         credentials: true
